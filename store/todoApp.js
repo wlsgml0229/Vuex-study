@@ -20,7 +20,7 @@ export default {
   // computed - 계산해서 사용, state가변경되면 getters도 변경됨
   getters: {
     filteredTodos (state) {
-      switch (state) {
+      switch (state.filter) {
         case 'all':
         default:
           // this.todos는 방금 작성한 computed 내의 todos()의 데이터이다.
@@ -38,7 +38,7 @@ export default {
       return state.todos.filter(todo => !todo.done).length
     },
     completedCount (state, getters) {
-      return state.total - getters.activeCount
+      return getters.total - getters.activeCount
     }
   },
   // methods
